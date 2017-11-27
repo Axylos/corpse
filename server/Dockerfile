@@ -4,11 +4,9 @@ FROM mhart/alpine-node
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY package.json /app/
+COPY package.json ./
 # COPY nodemon.json /app/
 
+COPY . ./
 RUN npm install --production
-
-COPY . /app/
-
 CMD ['npm', 'start']

@@ -6,15 +6,21 @@ services:
     container_name: "corpse_app"
     command: npm run dev
     ports:
-      - 3000:3000
-      - 9000:8000
+      - "8080:3001"
     volumes:
       - "./server/node_modules:/app/node_modules"
-      - "./server:/app/"
+        # - "./server:/app/"
     links:
       - mongodb
     depends_on:
       - mongodb
+  client:
+    build: ./client
+    container_name: 'corpse_client'
+    volumes:
+      - ./client/src:/client/src
+    ports:
+      - "3000:3000"
   mongodb:
     image: mongo:latest
     container_name: "corpse_mongo"

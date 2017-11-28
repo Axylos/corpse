@@ -11,18 +11,22 @@ const bestIcon = <FontIcon className="material-icons">star</FontIcon>;
 const contactIcon = <FontIcon className="material-icons">email</FontIcon>;
 const aboutIcon = <FontIcon className="material-icons">info</FontIcon>;
 
-const CorpseNav = props =>
-  (
-    <BottomNavigation>
-      <BottomNavigationItem label="Home" icon={homeIcon} />
-      <BottomNavigationItem label="Write With Strangers" icon={strangerIcon} />
-      <BottomNavigationItem label="Write With Friends" icon={friendIcon} />
-      <BottomNavigationItem label="Resources" icon={resourcesIcon} />
-      <BottomNavigationItem label="Peruse The Poems" icon={peruseIcon} />
-      <BottomNavigationItem label="Best Of" icon={bestIcon} />
-      <BottomNavigationItem label="Contact" icon={contactIcon} />
-      <BottomNavigationItem label="About" icon={aboutIcon} />
-    </BottomNavigation>
-  );
+class CorpseNav extends Component {
+  render() {
+    return (
+      <BottomNavigation>
+        <BottomNavigationItem label="Home" icon={homeIcon} />
+        <BottomNavigationItem label="Write With Strangers" icon={strangerIcon} />
+        <BottomNavigationItem label="Write With Friends" icon={friendIcon} />
+        <BottomNavigationItem label="Resources" icon={resourcesIcon} />
+        <BottomNavigationItem label="Peruse The Poems" icon={peruseIcon} />
+        <BottomNavigationItem label="Best Of" icon={bestIcon} />
+        <BottomNavigationItem label="Contact" icon={contactIcon} />
+        <BottomNavigationItem label="About" icon={aboutIcon} />
+      </BottomNavigation>
+    );
+  }
+}
+
 
 export default CorpseNav;

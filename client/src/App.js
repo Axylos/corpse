@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import logo from './logo.svg';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import CorpseNav from './components/corpse_nav';
-
+import Home from './components/main/home';
+import About from './components/main/about';
 
 const App = (props, context) =>
   (
     <MuiThemeProvider>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React, you</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+          </div>
+        </BrowserRouter>
         <CorpseNav />
       </div>
     </MuiThemeProvider>

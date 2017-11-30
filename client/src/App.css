@@ -1,5 +1,6 @@
 /* General Styles */
 .App {
+  font-family: 'EB Garamond', serif;
   text-align: center;
 }
 
@@ -63,8 +64,8 @@ h1,h2,h3,h4,h5{
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  margin: 10vh auto;
-  max-width: 750px;
+  margin: 5vh auto;
+  max-width: 670px;
   width: 100vw;
 }
 
@@ -87,6 +88,7 @@ h1,h2,h3,h4,h5{
 
 .about-slide p{
   text-indent: 30px;
+  line-height: 1.4em;
 }
 
 .about-slide h5{

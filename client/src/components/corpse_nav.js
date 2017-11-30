@@ -14,7 +14,8 @@ class CorpseNav extends Component {
   }
 
   getSelected() {
-    return routeLocations.findIndex(item => item.url === this.props.location.pathname);
+    const baseRoute = `/${this.props.location.pathname.split('/')[1]}`;
+    return routeLocations.findIndex(item => item.url === baseRoute);
   }
 
   navigate(location) {

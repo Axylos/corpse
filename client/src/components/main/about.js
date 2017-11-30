@@ -44,9 +44,11 @@ const aboutContent = [
         <h5>From Wikipedia:</h5>
         <blockquote>
           <p>
-            Exquisite corpse, also known as exquisite cadaver (from the original French
-            term cadavre exquis), is a method by which a collection of words or images is
-            collectively assembled.
+            <strong>Exquisite corpse, </strong>
+            also known as exquisite cadaver (from the original French term cadavre exquis),
+            <strong>
+              is a method by which a collection of words or images is collectively assembled.
+            </strong>
           </p>
           <p>
             Each collaborator adds to a composition in sequence, either by following a
@@ -55,13 +57,13 @@ const aboutContent = [
             allowed to see only the end of what the previous person contributed.
           </p>
           <p>
-            The technique was invented by surrealists and is similar to an old parlour
-            game called consequences in which players write in turn on a sheet of paper,
-            fold it to conceal part of the writing, and then pass it to the next player
-            for a further contribution. Surrealism principal founder André Breton reported
-            that it started in fun, but became playful and eventually enriching. Breton
-            said the diversion started about 1925, but Pierre Reverdy wrote that it
-            started much earlier, at least before 1918.
+            <strong>The technique was invented by surrealists </strong>
+            and is similar to an old parlour game called consequences in which players write
+            in turn on a sheet of paper, fold it to conceal part of the writing, and then
+            pass it to the next player for a further contribution. Surrealism principal founder
+            André Breton reported that it started in fun, but became playful and eventually
+            enriching. Breton said the diversion started about 1925, but Pierre Reverdy wrote
+            that it started much earlier, at least before 1918.
           </p>
         </blockquote>
       </div>

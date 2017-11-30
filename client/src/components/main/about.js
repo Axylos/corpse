@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
+import { Tabs, Tab } from 'material-ui/Tabs';
 
 const aboutContent = [
   {
@@ -47,8 +48,8 @@ const aboutContent = [
           <p>
             <strong>Exquisite corpse, </strong>
             also known as exquisite cadaver (from the original French term cadavre exquis),
-            <strong>
-              is a method by which a collection of words or images is collectively assembled.
+            <strong> is a method by which a collection of words or
+              images is collectively assembled.
             </strong>
           </p>
           <p>
@@ -118,19 +119,21 @@ class About extends Component {
     this.renderSlide = this.renderSlide.bind(this);
     this.renderNextButton = this.renderNextButton.bind(this);
     this.renderPreviousButton = this.renderPreviousButton.bind(this);
+    this.renderTabs = this.renderTabs.bind(this);
+    this.selectSlide = this.selectSlide.bind(this);
+  }
+
+  selectSlide(index) {
+    this.setState({ currentSlide: index });
   }
 
   nextSlide() {
-    this.setState(prev => ({
-      currentSlide: prev.currentSlide === aboutContent.length - 1 ?
-        aboutContent.length - 1 : prev.currentSlide + 1,
-    }));
+    this.selectSlide(Number(this.state.currentSlide) === aboutContent.length - 1 ?
+      aboutContent.length - 1 : Number(this.state.currentSlide) + 1);
   }
 
   previousSlide() {
-    this.setState(prev => ({
-      currentSlide: prev.currentSlide === 0 ? 0 : prev.currentSlide - 1,
-    }));
+    this.selectSlide(this.state.currentSlide === 0 ? 0 : this.state.currentSlide - 1);
   }
 
   renderSlide() {
@@ -171,15 +174,31 @@ class About extends Component {
     );
   }
 
+  renderTabs() {
+    return (
+      <Tabs value={Number(this.state.currentSlide)}>
+        {aboutContent.map((item, i) => (<Tab
+          onActive={() => this.selectSlide(i)}
+          value={i}
+          label={item.title}
+          key={item.title}
+        />))}
+      </Tabs>
+    );
+  }
+
   render() {
     return (
-      <div className="about-carousel">
-        <div className="carousel-button">
-          {this.renderPreviousButton()}
-        </div>
-        {this.renderSlide()}
-        <div className="carousel-button">
-          {this.renderNextButton()}
+      <div className="about">
+        {this.renderTabs()}
+        <div className="about-carousel">
+          <div className="carousel-button">
+            {this.renderPreviousButton()}
+          </div>
+          {this.renderSlide()}
+          <div className="carousel-button">
+            {this.renderNextButton()}
+          </div>
         </div>
       </div>
     );

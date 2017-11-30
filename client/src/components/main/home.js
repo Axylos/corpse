@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = props =>
+const Home = () =>
   (
     <div>
       <h2>Exquisite Corpse Factory</h2>

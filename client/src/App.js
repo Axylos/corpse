@@ -4,7 +4,7 @@ import './App.css';
 import Router from './components/router';
 
 
-const App = (props, context) =>
+const App = () =>
   (
     <MuiThemeProvider>
       <div className="App">

@@ -43,7 +43,7 @@ const locations = [
     icon: 'info',
     url: '/about',
     component: About,
-  }
-]
+  },
+];
 
 export default locations;

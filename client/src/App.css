@@ -1,3 +1,4 @@
+/* General Styles */
 .App {
   text-align: center;
 }
@@ -9,6 +10,47 @@ h1,h2,h3,h4,h5{
 .content{
   min-height: 100vh;
 }
+
+/* Home Styles */
+
+.home {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+.home h2{
+  margin: 0 auto 20px;
+}
+
+.home p{
+  margin: 0 auto;
+}
+
+.home-links{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  margin: 80px auto;
+  max-width: 500px;
+  width: 100vw;
+}
+
+/* About Page Styles */
 
 .about-carousel{
   -ms-align-items: flex-start;
@@ -51,11 +93,11 @@ h1,h2,h3,h4,h5{
   font-size: 1em;
 }
 
-blockquote{
+.about-slide blockquote{
   margin: 0;
 }
 
-blockquote p:first-of-type::before{
+.about-slide blockquote p:first-of-type::before{
   content: '“';
   display: inline-block;
   font-size: 1.5em;
@@ -64,7 +106,7 @@ blockquote p:first-of-type::before{
   width: 0;
 }
 
-blockquote p:last-of-type::after{
+.about-slide blockquote p:last-of-type::after{
   content: '„';
   font-size: 1.5em;
   line-height: .5em;

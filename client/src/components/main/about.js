@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -107,9 +108,10 @@ const aboutContent = [
 
 class About extends Component {
   constructor(props) {
+    const { match: { params: { id } } } = props;
     super(props);
     this.state = {
-      currentSlide: 0,
+      currentSlide: typeof id !== 'undefined' ? id : 0,
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
@@ -183,4 +185,13 @@ class About extends Component {
     );
   }
 }
+
+About.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
+
 export default About;

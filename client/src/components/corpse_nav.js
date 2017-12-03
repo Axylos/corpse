@@ -1,32 +1,67 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
 import FontIcon from 'material-ui/FontIcon';
+import routeLocations from '../route_locations';
 
-const homeIcon = <FontIcon className="material-icons">home</FontIcon>;
-const strangerIcon = <FontIcon className="material-icons">live_help</FontIcon>;
-const friendIcon = <FontIcon className="material-icons">group</FontIcon>;
-const resourcesIcon = <FontIcon className="material-icons">link</FontIcon>;
-const peruseIcon = <FontIcon className="material-icons">search</FontIcon>;
-const bestIcon = <FontIcon className="material-icons">star</FontIcon>;
-const contactIcon = <FontIcon className="material-icons">email</FontIcon>;
-const aboutIcon = <FontIcon className="material-icons">info</FontIcon>;
 
 class CorpseNav extends Component {
+  constructor() {
+    super();
+    this.renderNavItems = this.renderNavItems.bind(this);
+    this.navigate = this.navigate.bind(this);
+    this.getSelected = this.getSelected.bind(this);
+  }
+
+  getSelected() {
+    const baseRoute = `/${this.props.location.pathname.split('/')[1]}`;
+    return routeLocations.findIndex(item => item.url === baseRoute);
+  }
+
+  navigate(location) {
+    this.props.history.push(location);
+  }
+
+  renderNavItems() {
+    return routeLocations.map((item) => {
+      const icon = <FontIcon className="material-icons">{item.icon}</FontIcon>;
+      return (
+        <BottomNavigationItem
+          onClick={() => this.navigate(item.url)}
+          label={item.label}
+          icon={icon}
+          key={item.label}
+        />
+      );
+    });
+  }
+
   render() {
+    const style = {
+      bottom: 0,
+      flexWrap: 'wrap',
+      height: 'auto',
+      paddingBottom: '10px',
+      position: 'fixed',
+      minHeight: '56px',
+      width: '100vw',
+    };
     return (
-      <BottomNavigation>
-        <BottomNavigationItem label="Home" icon={homeIcon} />
-        <BottomNavigationItem label="Write With Strangers" icon={strangerIcon} />
-        <BottomNavigationItem label="Write With Friends" icon={friendIcon} />
-        <BottomNavigationItem label="Resources" icon={resourcesIcon} />
-        <BottomNavigationItem label="Peruse The Poems" icon={peruseIcon} />
-        <BottomNavigationItem label="Best Of" icon={bestIcon} />
-        <BottomNavigationItem label="Contact" icon={contactIcon} />
-        <BottomNavigationItem label="About" icon={aboutIcon} />
+      <BottomNavigation style={style} selectedIndex={this.getSelected()}>
+        { this.renderNavItems() }
       </BottomNavigation>
     );
   }
 }
+
+CorpseNav.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 
 export default CorpseNav;
